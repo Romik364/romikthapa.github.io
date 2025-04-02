@@ -1,71 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Mr</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Romik Thapa - Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333333;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .section {
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .section h2 {
+            color: #007bff;
+        }
+
+        #about img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        .skills ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skills li {
+            background-color: #ff6600;
+            color: white;
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .contact a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        @media (max-width: 600px) {
+            .skills li {
+                display: block;
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <header>
-        <h1>Welcome to My Portfolio</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>Romik Thapa</h1>
+        <p>Currently pursuing a BSc in Computing Systems at Ulster University, London</p>
     </header>
-    
-    <section id="about">
+
+    <div class="section" id="about">
         <h2>About Me</h2>
-        <p>Hello! I'm Mr, a passionate developer. I specialize in web development and software engineering.</p>
-    </section>
-    
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li>Project 1 - Description</li>
-            <li>Project 2 - Description</li>
-            <li>Project 3 - Description</li>
-        </ul>
-    </section>
-    
-    <section id="skills">
+        <img src="images/romik-photo.jpg" alt="Romik Thapa">
+        <p>Hello! I'm Romik Thapa, a passionate developer and tech enthusiast, currently studying at Ulster University in London. I specialize in DevOps, system optimization, and software development.</p>
+    </div>
+
+    <div class="section skills">
         <h2>Skills</h2>
         <ul>
-            <li>HTML, CSS, JavaScript</li>
-            <li>React, Node.js</li>
-            <li>Python, Django</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>C</li>
+            <li>SQL</li>
+            <li>CSS</li>
+            <li>HTML</li>
+            <li>PHP</li>
         </ul>
-    </section>
-    
-    <section id="resume">
-        <h2>Resume</h2>
-        <a href="resume.pdf" download>Download My Resume</a>
-    </section>
-    
-    <section id="contact">
+    </div>
+
+    <div class="section" id="projects">
+        <h2>Projects</h2>
+        <h3>Project 1: Personal Portfolio Website</h3>
+        <p>Built using HTML, CSS, and JavaScript. This project showcases my personal website, demonstrating skills in web development.</p>
+
+        <h3>Project 2: DevOps Automation Tool</h3>
+        <p>Automated server provisioning using Ansible and Docker, simplifying infrastructure management.</p>
+
+        <h3>Project 3: Cloud-based Application</h3>
+        <p>Deployed a scalable app on AWS, utilizing cloud technologies to ensure high availability and reliability.</p>
+    </div>
+
+    <div class="section contact">
         <h2>Contact</h2>
-        <form>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-            
-            <button type="submit">Send</button>
-        </form>
-    </section>
-    
+        <p>If you'd like to connect, feel free to reach out to me:</p>
+        <a href="mailto:romikthapa364@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/romikthapa" target="_blank">LinkedIn</a>
+        <a href="https://github.com/romikthapa" target="_blank">GitHub</a>
+    </div>
+
     <footer>
-        <p>&copy; 2025 Mr. All Rights Reserved.</p>
+        <p>&copy; 2025 Romik Thapa. All rights reserved.</p>
     </footer>
 </body>
+
 </html>
