@@ -4,128 +4,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Romik Thapa - Portfolio</title>
+    <title>Romik Thapa - Innovator in Tech</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333333;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         header {
-            background-color: #007bff;
+            height: 100vh;
+            background: url('background-image.jpg') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             color: white;
             text-align: center;
-            padding: 20px 0;
         }
 
         header h1 {
-            margin: 0;
-        }
-
-        .section {
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .section h2 {
-            color: #007bff;
-        }
-
-        #about img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
+            font-size: 4rem;
+            font-weight: bold;
             margin-bottom: 20px;
         }
 
-        .skills ul {
-            list-style-type: none;
-            padding: 0;
+        header p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
         }
 
-        .skills li {
+        .cta-button {
             background-color: #ff6600;
+            padding: 15px 30px;
+            font-size: 1.2rem;
             color: white;
-            display: inline-block;
-            margin: 5px;
-            padding: 10px;
+            text-decoration: none;
+            border-radius: 30px;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            background-color: #e55d00;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            z-index: 9999;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-left: 40px;
+        }
+
+        section {
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .project-card {
+            background-color: #222;
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
             border-radius: 5px;
         }
 
-        .contact a {
-            color: #007bff;
-            text-decoration: none;
-            margin-right: 10px;
+        .project-card h3 {
+            margin-top: 15px;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            font-size: 1.1rem;
+            margin-top: 10px;
         }
 
         footer {
-            background-color: #007bff;
-            color: white;
+            background-color: #121212;
+            padding: 20px;
             text-align: center;
-            padding: 10px 0;
+            color: white;
         }
 
-        @media (max-width: 600px) {
-            .skills li {
-                display: block;
-                width: 100%;
-                margin: 5px 0;
-            }
+        footer p {
+            font-size: 1rem;
+        }
+
+        footer a {
+            color: #ff6600;
+            text-decoration: none;
+        }
+
+        form {
+            background-color: #222;
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #1d1d1d;
+            color: white;
+        }
+
+        form button {
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        form button:hover {
+            background-color: #e55d00;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5rem;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #ff6600;
+        }
+
+        .time-display {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 12px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
         }
     </style>
 </head>
 
 <body>
+
+    <!-- Time Display -->
+    <div class="time-display" id="timeDisplay"></div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
     <header>
         <h1>Romik Thapa</h1>
-        <p>Currently pursuing a BSc in Computing Systems at Ulster University, London</p>
+        <p>Innovator in Technology & DevOps</p>
+        <a href="#projects" class="cta-button">See My Work</a>
+        <a href="#contact" class="cta-button">Contact Me</a>
     </header>
 
-    <div class="section" id="about">
+    <!-- About Section -->
+    <section id="about">
         <h2>About Me</h2>
-        <img src="images/romik-photo.jpg" alt="Romik Thapa">
-        <p>Hello! I'm Romik Thapa, a passionate developer and tech enthusiast, currently studying at Ulster University in London. I specialize in DevOps, system optimization, and software development.</p>
-    </div>
+        <p>I’m a passionate developer focused on DevOps, system optimization, and the future of technology. With a vision to transform businesses through technology, I'm working on projects that impact the world of tomorrow.</p>
+    </section>
 
-    <div class="section skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Python</li>
-            <li>JavaScript</li>
-            <li>C</li>
-            <li>SQL</li>
-            <li>CSS</li>
-            <li>HTML</li>
-            <li>PHP</li>
-        </ul>
-    </div>
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-card">
+            <img src="project1.jpg" alt="Project 1">
+            <h3>Personal Portfolio Website</h3>
+            <p>Developed a responsive portfolio website to showcase my skills in full-stack development.</p>
+        </div>
+        <div class="project-card">
+            <img src="project2.jpg" alt="Project 2">
+            <h3>DevOps Automation Tool</h3>
+            <p>Built a tool to automate the setup of servers using Ansible, Docker, and Kubernetes for faster deployments.</p>
+        </div>
+        <div class="project-card">
+            <img src="project3.jpg" alt="Project 3">
+            <h3>Cloud-based Application</h3>
+            <p>Deployed a scalable application on AWS to ensure high availability and reliability for business operations.</p>
+        </div>
+    </section>
 
-    <div class="section" id="projects">
-        <h2>Projects</h2>
-        <h3>Project 1: Personal Portfolio Website</h3>
-        <p>Built using HTML, CSS, and JavaScript. This project showcases my personal website, demonstrating skills in web development.</p>
-
-        <h3>Project 2: DevOps Automation Tool</h3>
-        <p>Automated server provisioning using Ansible and Docker, simplifying infrastructure management.</p>
-
-        <h3>Project 3: Cloud-based Application</h3>
-        <p>Deployed a scalable app on AWS, utilizing cloud technologies to ensure high availability and reliability.</p>
-    </div>
-
-    <div class="section contact">
+    <!-- Contact Section -->
+    <section id="contact">
         <h2>Contact</h2>
-        <p>If you'd like to connect, feel free to reach out to me:</p>
-        <a href="mailto:romikthapa364@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/romikthapa" target="_blank">LinkedIn</a>
-        <a href="https://github.com/romikthapa" target="_blank">GitHub</a>
-    </div>
+        <p>If you’d like to collaborate or discuss a project, feel free to reach out.</p>
+        <form action="your-mail-handler-url" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div class="social-links">
+            <a href="https://twitter.com/elonmusk" target="_blank">Twitter</a>
+            <a href="https://www.linkedin.com/in/elonmusk" target="_blank">LinkedIn</a>
+            <a href="https://www.instagram.com/elonmusk/" target="_blank">Instagram</a>
+        </div>
+    </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Romik Thapa. All rights reserved.</p>
+        <p>Find me on <a href="https://www.linkedin.com/in/romikthapa/" target="_blank">LinkedIn</a> or <a href="mailto:romikthapa364@gmail.com">Email</a></p>
     </footer>
+
+    <script>
+        function updateTime() {
+            const nepalTime = new Date().toLocaleString("en-US", { timeZone: "Asia/Kathmandu" });
+            const ukTime = new Date().toLocaleString("en-US", { timeZone: "Europe/London" });
+
+            const nepalTimeFormatted = new Date(nepalTime).toLocaleTimeString();
+            const ukTimeFormatted = new Date(ukTime).toLocaleTimeString();
+
+            document.getElementById('timeDisplay').innerHTML = `Nepal: ${nepalTimeFormatted} | UK: ${ukTimeFormatted}`;
+        }
+
+        // Update time every second
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+
 </body>
 
 </html>
