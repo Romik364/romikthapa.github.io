@@ -20,9 +20,34 @@
             scroll-behavior: smooth;
         }
 
+        /* Flying Nepal Flag Background */
+        .flag-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: url('nepal-flag.png') center/cover no-repeat;
+            animation: flagWaving 10s ease-in-out infinite;
+            z-index: -1; /* Ensure flag is in the background */
+        }
+
+        @keyframes flagWaving {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(10deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
         header {
             height: 100vh;
-            background: url('background-image.jpg') center/cover no-repeat;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -213,6 +238,9 @@
 </head>
 
 <body>
+
+    <!-- Flag Container for Flying Nepal Flag -->
+    <div class="flag-container"></div>
 
     <!-- Time Display -->
     <div class="time-display" id="timeDisplay"></div>
