@@ -180,6 +180,35 @@
             padding: 5px 10px;
             border-radius: 5px;
         }
+
+        /* Hidden Contact Information */
+        .contact-info {
+            display: none;
+            margin-top: 20px;
+            background-color: #222;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-align: left;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        /* Display Submitted Details */
+        .collaborator-details {
+            display: none;
+            margin-top: 30px;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+        }
+
+        .collaborator-details p {
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
@@ -192,7 +221,7 @@
     <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#contact" id="contactLink">Contact</a>
     </nav>
 
     <!-- Hero Section -->
@@ -233,12 +262,21 @@
     <section id="contact">
         <h2>Contact</h2>
         <p>If you’d like to collaborate or discuss a project, feel free to reach out.</p>
-        <form action="your-mail-handler-url" method="post">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
+        <form id="collaborationForm">
+            <input type="text" id="name" placeholder="Your Name" required><br>
+            <input type="email" id="email" placeholder="Your Email" required><br>
+            <textarea id="message" placeholder="Your Message" required></textarea><br>
+            <button type="submit">Send</button>
         </form>
+
+        <!-- Display Collaboration Details -->
+        <div class="collaborator-details" id="collaboratorDetails">
+            <h3>Collaboration Request:</h3>
+            <p><strong>Name:</strong> <span id="collabName"></span></p>
+            <p><strong>Email:</strong> <span id="collabEmail"></span></p>
+            <p><strong>Message:</strong> <span id="collabMessage"></span></p>
+        </div>
+
         <div class="social-links">
             <a href="https://twitter.com/elonmusk" target="_blank">Twitter</a>
             <a href="https://www.linkedin.com/in/elonmusk" target="_blank">LinkedIn</a>
@@ -266,8 +304,27 @@
         // Update time every second
         setInterval(updateTime, 1000);
         updateTime();
-    </script>
 
+        // Handle the collaboration form submission
+        document.getElementById('collaborationForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Display the submitted details
+            document.getElementById('collabName').textContent = name;
+            document.getElementById('collabEmail').textContent = email;
+            document.getElementById('collabMessage').textContent = message;
+
+            // Show the details section
+            document.getElementById('collaboratorDetails').style.display = 'block';
+
+            // Optionally, clear the form
+            document.getElementById('collaborationForm').reset();
+        });
+    </script>
 </body>
 
 </html>
