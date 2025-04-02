@@ -9,10 +9,9 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #222222;
-            color: #fff;
+            background-color: #f4f4f4;
+            color: #333;
             position: relative;
-            overflow-x: hidden;
         }
 
         header {
@@ -35,14 +34,13 @@
             width: 100%;
             height: 100vh;
             background: url('https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Nepal.svg') center/cover no-repeat;
-            opacity: 0.8;
             animation: flagWaving 10s ease-in-out infinite;
             z-index: -1;
         }
 
         @keyframes flagWaving {
             0% { transform: rotate(0deg); }
-            50% { transform: rotate(5deg); }
+            50% { transform: rotate(10deg); }
             100% { transform: rotate(0deg); }
         }
 
@@ -51,7 +49,160 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            font-size: 18px;
-            color: #ffff00;
+            font-size: 14px;
+            color: white;
             font-weight: bold;
-            text-shadow:
+        }
+
+        /* Main content styling */
+        .section {
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .section h2 {
+            color: #007bff;
+        }
+
+        #about img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            margin-bottom: 20px;
+        }
+
+        .skills ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skills li {
+            background-color: #ff6600;
+            color: white;
+            display: inline-block;
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .contact a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .skills li {
+                display: block;
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+
+        /* Contact form styling */
+        .contact-form {
+            display: none;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 500px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flag-container"></div>
+
+    <header>
+        <h1>Romik Thapa</h1>
+        <p>Currently pursuing a BSc in Computing Systems at Ulster University, London</p>
+    </header>
+
+    <div class="time-display" id="timeDisplay">
+        <!-- Time will be shown here -->
+    </div>
+
+    <div class="section" id="about">
+        <h2>About Me</h2>
+        <img src="images/romik-photo.jpg" alt="Romik Thapa">
+        <p>Hello! I'm Romik Thapa, a passionate developer and tech enthusiast, currently studying at Ulster University in London. I specialize in DevOps, system optimization, and software development.</p>
+    </div>
+
+    <div class="section skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>Python</li>
+            <li>JavaScript</li>
+            <li>C</li>
+            <li>SQL</li>
+            <li>CSS</li>
+            <li>HTML</li>
+            <li>PHP</li>
+        </ul>
+    </div>
+
+    <div class="section" id="projects">
+        <h2>Projects</h2>
+        <h3>Project 1: Personal Portfolio Website</h3>
+        <p>Built using HTML, CSS, and JavaScript. This project showcases my personal website, demonstrating skills in web development.</p>
+
+        <h3>Project 2: DevOps Automation Tool</h3>
+        <p>Automated server provisioning using Ansible and Docker, simplifying infrastructure management.</p>
+
+        <h3>Project 3: Cloud-based Application</h3>
+        <p>Deployed a scalable app on AWS, utilizing cloud technologies to ensure high availability and reliability.</p>
+    </div>
+
+    <div class="section contact">
+        <h2>Contact</h2>
+        <p>If you'd like to connect, feel free to reach out to me:</p>
+        <a href="#" onclick="showContactForm()">Contact Me</a>
+        <div id="contactForm" class="contact-form">
+            <h3>Contact Details</h3>
+            <p>Email: romikthapa364@gmail.com</p>
+            <p>Phone: (123) 456-7890</p>
+            <button onclick="closeContactForm()">Close</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Romik Thapa. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Display current time for Nepal and UK
+        function updateTime() {
+            const nepalTime = new Date().toLocaleString("en-GB", { timeZone: "Asia/Kathmandu" });
+            const ukTime = new Date().toLocaleString("en-GB", { timeZone: "Europe/London" });
+            document.getElementById("timeDisplay").innerHTML = `Nepal Time: ${nepalTime} | UK Time: ${ukTime}`;
+        }
+
+        setInterval(updateTime, 1000);  // Update every second
+
+        // Show contact form
+        function showContactForm() {
+            document.getElementById("contactForm").style.display = "block";
+        }
+
+        // Close contact form
+        function closeContactForm() {
+            document.getElementById("contactForm").style.display = "none";
+        }
+    </script>
+</body>
+</html>
+
