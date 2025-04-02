@@ -9,9 +9,10 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+            background-color: #222222;
+            color: #fff;
             position: relative;
+            overflow-x: hidden;
         }
 
         header {
@@ -34,6 +35,7 @@
             width: 100%;
             height: 100vh;
             background: url('https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Nepal.svg') center/cover no-repeat;
+            opacity: 0.6;
             animation: flagWaving 10s ease-in-out infinite;
             z-index: -1;
         }
@@ -49,9 +51,11 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            font-size: 14px;
-            color: white;
+            font-size: 18px;
+            color: #ffff00;
             font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            z-index: 10;
         }
 
         /* Main content styling */
@@ -121,6 +125,52 @@
             max-width: 500px;
             z-index: 9999;
         }
+
+        /* AI Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .chatbox {
+            display: none;
+            position: fixed;
+            bottom: 60px;
+            right: 10px;
+            width: 300px;
+            height: 350px;
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+        }
+
+        .chatbox input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .chatbox button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -183,6 +233,21 @@
         <p>&copy; 2025 Romik Thapa. All rights reserved.</p>
     </footer>
 
+    <!-- AI Chatbot Button -->
+    <div class="chatbot-container" onclick="toggleChatbox()">Chat with AI</div>
+
+    <!-- AI Chatbox -->
+    <div class="chatbox" id="chatbox">
+        <h3>AI Chat</h3>
+        <p id="chat-output">Hello! Please provide your details to collaborate:</p>
+        <input type="text" id="userName" placeholder="Enter your name" />
+        <input type="number" id="userAge" placeholder="Enter your age" />
+        <input type="text" id="userPhone" placeholder="Enter your phone number" />
+        <input type="email" id="userEmail" placeholder="Enter your email" />
+        <textarea id="userDescription" placeholder="Describe your interest" rows="4"></textarea>
+        <button onclick="submitDetails()">Submit</button>
+    </div>
+
     <script>
         // Display current time for Nepal and UK
         function updateTime() {
@@ -201,6 +266,36 @@
         // Close contact form
         function closeContactForm() {
             document.getElementById("contactForm").style.display = "none";
+        }
+
+        // Toggle AI chatbox
+        function toggleChatbox() {
+            var chatbox = document.getElementById("chatbox");
+            chatbox.style.display = (chatbox.style.display === "none" || chatbox.style.display === "") ? "block" : "none";
+        }
+
+        // Submit AI Chat details
+        function submitDetails() {
+            const name = document.getElementById("userName").value;
+            const age = document.getElementById("userAge").value;
+            const phone = document.getElementById("userPhone").value;
+            const email = document.getElementById("userEmail").value;
+            const description = document.getElementById("userDescription").value;
+
+            const output = `Thank you for providing your details! 
+                            Name: ${name}
+                            Age: ${age}
+                            Phone: ${phone}
+                            Email: ${email}
+                            Description: ${description}`;
+            document.getElementById("chat-output").innerText = output;
+        }
+
+        // Close chatbox by clicking outside (if desired)
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("chatbox")) {
+                document.getElementById("chatbox").style.display = "none";
+            }
         }
     </script>
 </body>
