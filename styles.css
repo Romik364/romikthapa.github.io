@@ -6,7 +6,8 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #121212;
+    background: url('IMG_0501[1]zzz.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Ensure the image covers the full viewport */
     color: white;
     overflow-x: hidden;
 }
