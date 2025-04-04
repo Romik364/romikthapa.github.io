@@ -7,21 +7,18 @@
     <link rel="stylesheet" href="chatbot.css">
 </head>
 <body>
-    <header>
-        <h1>Chat with Me</h1>
-    </header>
-
-    <section id="chat-container">
-        <div id="chatbox">
-            <p class="bot-message">Hello! Please provide your details.</p>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>Chat with Me</h2>
         </div>
-        <input type="text" id="user-input" placeholder="Type your response..." />
-        <button onclick="sendMessage()">Send</button>
-    </section>
+        <div id="chatbox" class="chatbox"></div>
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
 
-    <footer>
-        <p>&copy; 2025 Romik Thapa. All rights reserved.</p>
-    </footer>
+    <audio id="notification-sound" src="notification.mp3"></audio>
 
     <script src="chatbot.js"></script>
 </body>
