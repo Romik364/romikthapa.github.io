@@ -3,28 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat with Me</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="chatbot.css">
 </head>
 <body>
     <header>
-        <h1>Chat with Romik Thapa</h1>
+        <h1>Chat with Me</h1>
     </header>
 
-    <section id="chat">
-        <div class="chat-container">
-            <div id="chatbox">
-                <p class="bot-message">Hello! Please provide your details.</p>
-            </div>
-            <input type="text" id="user-input" placeholder="Type your response..." />
-            <button onclick="sendMessage()">Send</button>
+    <section id="chat-container">
+        <div id="chatbox">
+            <p class="bot-message">Hello! Please provide your details.</p>
         </div>
+        <input type="text" id="user-input" placeholder="Type your response..." />
+        <button onclick="sendMessage()">Send</button>
     </section>
 
     <footer>
         <p>&copy; 2025 Romik Thapa. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
 </body>
 </html>
