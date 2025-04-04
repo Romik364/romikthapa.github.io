@@ -1,81 +1,71 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const chatbox = document.getElementById("chatbot-output");
-    const userInput = document.getElementById("chatbot-input");
-    const submitBtn = document.getElementById("chatbot-submit");
+const chatbox = document.getElementById("chatbox");
+const userInput = document.getElementById("user-input");
 
-    const questions = [
-        "What is your first name?",
-        "What is your last name?",
-        "What is your phone number?",
-        "What is your email?",
-        "What is your address?",
-        "Please enter your message:"
-    ];
+const questions = [
+    "What is your Name?",
+    "What is your Phone Number?",
+    "What is your Gmail?",
+    "What is your Address?",
+    "Please enter your Message:"
+];
 
-    let responses = [];
-    let questionIndex = 0;
+let responses = [];
+let questionIndex = 0;
 
-    // Function to display bot messages
-    function displayBotMessage(message) {
-        chatbox.innerHTML += `<p class="bot-message"><strong>Bot:</strong> ${message}</p>`;
-        chatbox.scrollTop = chatbox.scrollHeight;
+// Function to display a message in the chatbox
+function displayMessage(sender, message) {
+    chatbox.innerHTML += `<p class="${sender === 'bot' ? 'bot-message' : 'user-message'}"><strong>${sender === 'bot' ? 'Bot' : 'You'}:</strong> ${message}</p>`;
+    chatbox.scrollTop = chatbox.scrollHeight; // Auto-scroll to latest message
+}
+
+// Function to ask the next question
+function askQuestion() {
+    if (questionIndex < questions.length) {
+        setTimeout(() => {
+            displayMessage('bot', questions[questionIndex]);
+        }, 1000);
+    } else {
+        sendToFormSubmit();
     }
+}
 
-    // Function to ask the next question
-    function askQuestion() {
-        if (questionIndex < questions.length) {
-            displayBotMessage(questions[questionIndex]);
-        } else {
-            sendToServer();
-        }
-    }
+// Function to send user input
+function sendMessage() {
+    let message = userInput.value.trim();
+    if (message === "") return;
 
-    // Function to handle user input
-    function sendMessage() {
-        let message = userInput.value.trim();
-        if (message === "") return;
+    displayMessage('user', message);
+    responses.push(message);
+    userInput.value = "";
 
-        chatbox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
-        chatbox.scrollTop = chatbox.scrollHeight;
-        responses.push(message);
-        userInput.value = "";
-
-        questionIndex++;
-        setTimeout(askQuestion, 1000);
-    }
-
-    // Function to send collected data to the backend
-    function sendToServer() {
-        fetch("/send-email", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                firstName: responses[0] || "",
-                lastName: responses[1] || "",
-                phone: responses[2] || "",
-                email: responses[3] || "",
-                address: responses[4] || "",
-                message: responses[5] || ""
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            displayBotMessage(data.message || "Your information has been sent successfully!");
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            displayBotMessage("There was an error sending your information. Please try again.");
-        });
-    }
-
-    // Event Listeners
-    submitBtn.addEventListener("click", sendMessage);
-    userInput.addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            sendMessage();
-        }
-    });
-
-    // Start chatbot by asking the first question
+    questionIndex++;
     askQuestion();
-});
+}
+
+// Function to send form data to email
+function sendToFormSubmit() {
+    let formData = new FormData();
+    formData.append("Name", responses[0]);
+    formData.append("Phone", responses[1]);
+    formData.append("Gmail", responses[2]);
+    formData.append("Address", responses[3]);
+    formData.append("Message", responses[4]);
+
+    fetch("https://formsubmit.co/ajax/romikthapa364@gmail.com", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        displayMessage('bot', "Your message has been sent successfully! ✅");
+    })
+    .catch(error => {
+        displayMessage('bot', "Error sending message. ❌");
+    });
+}
+
+// Auto-greet the user when they visit the website
+window.onload = function() {
+    displayMessage('bot', "Hello! 👋 Welcome to my website.");
+    setTimeout(askQuestion, 2000); // Start asking questions after greeting
+};
