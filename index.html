@@ -1,76 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Romik Thapa - Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohmi Thapa - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <h1>I create <span class="highlight">product design</span> and brand experience</h1>
-      <img src="your-photo.jpg" alt="Your Photo" class="profile-photo" />
-    </div>
-  </header>
+    <header>
+        <div class="container">
+            <h1>Rohmi Thapa</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <section class="expertise">
-    <div class="container">
-      <h2>My Expertise</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>UI/UX Design</h3>
-          <p>Designing intuitive user interfaces and experiences.</p>
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="profile.jpg" alt="Rohmi Thapa" class="profile-image">
+                <h2>Hi, I'm Rohmi Thapa</h2>
+                <p>A recent graduate from Ulster University London with a Master's in Computing Systems and a passion for technology. Eager to contribute my skills in JavaScript, Python, C, HTML, CSS, and PHP to an entry-level role in an IT department, such as IT Support or Junior Web Developer.</p>
+                <a href="#contact" class="button">Contact Me</a>
+            </div>
         </div>
-        <div class="card">
-          <h3>Brand Identity</h3>
-          <p>Creating cohesive brand visuals and messaging.</p>
-        </div>
-        <div class="card">
-          <h3>Web Development</h3>
-          <p>Building responsive and interactive websites.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="projects">
-    <div class="container">
-      <h2>Featured Projects</h2>
-      <div class="project-list">
-        <div class="project">
-          <img src="project1.jpg" alt="Project 1" />
-          <h3>Project Title 1</h3>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Hello! I'm Rohmi Thapa, originally from Nepal and currently based in London, UK. I'm a highly motivated and enthusiastic recent graduate with a Master's degree in Computing Systems from Ulster University London. My studies have equipped me with a strong foundation in various programming languages and web technologies. I'm keen to apply my knowledge and learn from experienced professionals in a beginner-level IT role.</p>
+            <p>I'm a quick learner, detail-oriented, and possess strong problem-solving skills. I'm excited about the opportunity to contribute to a dynamic team and grow within the IT industry.</p>
         </div>
-        <div class="project">
-          <img src="project2.jpg" alt="Project 2" />
-          <h3>Project Title 2</h3>
-        </div>
-        <div class="project">
-          <img src="project3.jpg" alt="Project 3" />
-          <h3>Project Title 3</h3>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>You can reach me at <a href="mailto:romikthapa364@gmail.com">romikthapa364@gmail.com</a></p>
-      <form action="#" method="post">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <ul>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>C Programming</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>PHP</li>
+            </ul>
+        </div>
+    </section>
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 Romik Thapa. All rights reserved.</p>
-    </div>
-  </footer>
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>Portfolio</h2>
+            <p>Here are some of the projects I've worked on. (You'll add your project details here)</p>
+            <div class="portfolio-grid">
+                <div class="project">
+                    <img src="placeholder-project.jpg" alt="Project 1">
+                    <h3>Project Title 1</h3>
+                    <p>Brief description of the project and technologies used.</p>
+                    <a href="#" target="_blank">View Project</a> </div>
+
+                <div class="project">
+                    <img src="placeholder-project.jpg" alt="Project 2">
+                    <h3>Project Title 2</h3>
+                    <p>Brief description of the project and technologies used.</p>
+                    <a href="#" target="_blank">View Project</a>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>I'm currently looking for entry-level opportunities in IT Support or Junior Web Development. Feel free to reach out!</p>
+            <p>Email: <a href="mailto:364other@gmail.com">364other@gmail.com</a></p>
+            <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/yourprofile</a> (Please add your actual LinkedIn profile link here)</p>
+            <p>GitHub: <a href="#" target="_blank">github.com/yourusername</a> (Please add your actual GitHub username here if you have one)</p>
+
+            <h3>Send me a message</h3>
+            <form action="#" method="POST"> <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="button">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Rohmi Thapa. All rights reserved.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
