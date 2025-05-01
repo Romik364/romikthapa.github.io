@@ -1,39 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <head>
-  <meta charset="UTF-8">
-  <title>Contact Me Button</title>
-  <style>
-    .contact-button {
-      background-color: #007BFF; /* Blue */
-      border: none;
-      color: white;
-      padding: 12px 24px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 10px;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: background-color 0.3s;
-    }
-
-    .contact-button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Romik Thapa - Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header class="hero">
+    <div class="container">
+      <h1>I create <span class="highlight">product design</span> and brand experience</h1>
+      <img src="your-photo.jpg" alt="Your Photo" class="profile-photo" />
+    </div>
+  </header>
 
-  <button class="contact-button" onclick="alert('Contact form coming soon!')">Contact Me</button>
+  <section class="expertise">
+    <div class="container">
+      <h2>My Expertise</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>UI/UX Design</h3>
+          <p>Designing intuitive user interfaces and experiences.</p>
+        </div>
+        <div class="card">
+          <h3>Brand Identity</h3>
+          <p>Creating cohesive brand visuals and messaging.</p>
+        </div>
+        <div class="card">
+          <h3>Web Development</h3>
+          <p>Building responsive and interactive websites.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</body>
-</br>
-</br>
-</br>
-<body>
-  Hey, I’m Romik 👋 I’m a Web Developer who loves creating cool websites and smart apps using JavaScript, Python, and more. Always learning. Always building.
+  <section class="projects">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <div class="project-list">
+        <div class="project">
+          <img src="project1.jpg" alt="Project 1" />
+          <h3>Project Title 1</h3>
+        </div>
+        <div class="project">
+          <img src="project2.jpg" alt="Project 2" />
+          <h3>Project Title 2</h3>
+        </div>
+        <div class="project">
+          <img src="project3.jpg" alt="Project 3" />
+          <h3>Project Title 3</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact Me</h2>
+      <p>You can reach me at <a href="mailto:romikthapa364@gmail.com">romikthapa364@gmail.com</a></p>
+      <form action="#" method="post">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Romik Thapa. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
