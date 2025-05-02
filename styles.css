@@ -21,11 +21,6 @@ body {
 
 /* Hero Section */
 .hero {
-  background-color: #fff;
-  padding: 4rem 0;
-  text-align: center;
-}
-.hero {
   background-color: #f0f4ff;
   padding: 50px 20px;
 }
