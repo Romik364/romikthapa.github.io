@@ -253,7 +253,10 @@
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
       <div class="bg-white rounded-xl shadow-lg p-8">
-        <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <form id="contact-form" 
+      action="https://formspree.io/f/mrbqpzdo" 
+      method="POST" 
+      class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
             <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
@@ -351,19 +354,12 @@
     });
     
     // Form submission
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-      
-      // Here you would normally send the form data to a server
-      console.log('Form submitted:', data);
-      
-      // Show a success message
-      alert('Thank you for your message! I will get back to you soon.');
-      form.reset();
-    });
+document.getElementById('contact-form').addEventListener('submit', function() {
+  setTimeout(() => {
+    alert('✅ Thank you for your message! I will get back to you soon.');
+  }, 500);
+});
+
     
     // Animation when elements come into view
     const observer = new IntersectionObserver((entries) => {
@@ -381,37 +377,6 @@
       observer.observe(section);
     });
   </script>
-<form id="contact-form" 
-      action="https://formspree.io/f/mrbqpzdo" 
-      method="POST" 
-      class="grid grid-cols-1 md:grid-cols-2 gap-6">
-  <div>
-    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-    <input type="text" id="name" name="name" required
-           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-  </div>
-  <div>
-    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-    <input type="email" id="email" name="email" required
-           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-  </div>
-  <div class="md:col-span-2">
-    <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-    <input type="text" id="subject" name="subject"
-           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
-  </div>
-  <div class="md:col-span-2">
-    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
-    <textarea id="message" name="message" rows="5" required
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
-  </div>
-  <div class="md:col-span-2">
-    <button type="submit"
-            class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition font-medium w-full md:w-auto">
-      Send Message
-    </button>
-  </div>
-</form>
 
 </body>
 </html>
