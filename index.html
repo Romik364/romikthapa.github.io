@@ -1,130 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Romik Thapa - Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+    .delay-100 { animation-delay: 0.1s; }
+    .delay-200 { animation-delay: 0.2s; }
+    .delay-300 { animation-delay: 0.3s; }
+    .gradient-text {
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
+  </style>
 </head>
-<body>
-  <header class="hero">
-    <section class="hero">
-  <div class="hero-content">
-    <div class="hero-text">
-      <h1>I create <span>software</span> and solve real-world problems</h1>
-      <p>I am a Computer Science student passionate about web development, DevOps, and building useful digital tools.</p>
-      <a href="#contact" class="btn">Get In Touch</a>
+<body class="bg-gray-50 text-gray-800 font-sans">
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-white shadow-sm z-50">
+    <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold gradient-text">Romik Thapa</a>
+      <div class="hidden md:flex space-x-8">
+        <a href="#about" class="hover:text-blue-500 transition">About</a>
+        <a href="#skills" class="hover:text-blue-500 transition">Skills</a>
+        <a href="#projects" class="hover:text-blue-500 transition">Projects</a>
+        <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
+      </div>
+      <button id="mobile-menu-button" class="md:hidden text-gray-700">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
     </div>
-    <div class="hero-image">
-      <img src="your-photo.jpg" alt="Romik Thapa">
-    </div>
-  </div>
-</section>
-
-  </header>
-<section id="skills">
-    <h2>My Skills</h2>
-<div class="skills-container">
-    <div class="skill">
-        <h3>Programming Languages</h3>
-        <ul>
-            <li>JavaScript</li>
-            <li>C Programming</li>
-            <li>Python</li>
-            <li>SQL</li>
-        </ul>
-    </div>
-
-    <div class="skill">
-        <h3>Tools & Technologies</h3>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Git</li>
-            <li>Docker (Learning)</li>
-            <li>AWS (Learning)</li>
-        </ul>
-    </div>
-  </div>
-</section>
-
-</section>
-  <section id="about" class="py-20 px-8 bg-[#f4fbff]">
-  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
     
-    <!-- Left Side Image with Purple Background -->
-    <div class="relative">
-      <div class="absolute top-0 left-0 w-full h-full z-0">
-        <img src="https://i.ibb.co/h9yMQz2/purple-brush.png" alt="Background" class="w-full max-w-sm">
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white px-6 py-3 shadow-md">
+      <div class="flex flex-col space-y-4">
+        <a href="#about" class="hover:text-blue-500 transition">About</a>
+        <a href="#skills" class="hover:text-blue-500 transition">Skills</a>
+        <a href="#projects" class="hover:text-blue-500 transition">Projects</a>
+        <a href="#contact" class="hover:text-blue-500 transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen flex items-center pt-20">
+    <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+      <div class="animate-fade-in">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+          Hi, I'm <span class="gradient-text">Romik Thapa</span>
+        </h1>
+        <p class="text-xl mb-8 text-gray-600 animate-fade-in delay-100">
+          BSc Computing Systems Student | Football Enthusiast | Aspiring Developer
+        </p>
+        <div class="flex space-x-4 animate-fade-in delay-200">
+          <a href="#contact" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition">
+            Contact Me
+          </a>
+          <a href="#projects" class="border border-gray-300 px-6 py-3 rounded-full hover:bg-gray-100 transition">
+            My Projects
+          </a>
+        </div>
+      </div>
+      <div class="animate-fade-in delay-300">
+        <img 
+          src="your-photo.jpg" 
+          alt="Romik Thapa, Computing Systems student at Ulster University"
+          class="rounded-2xl shadow-xl w-full"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center">About Me</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <p class="text-lg mb-4">
+            I'm currently pursuing my BSc in Computing Systems at Ulster University, London, where I'm developing expertise in software development and system architecture. My academic journey has provided hands-on experience with various programming languages and development frameworks.
+          </p>
+          <p class="text-lg mb-4">
+            As a passionate football fan and Lionel Messi enthusiast, I admire his discipline and creative approach to the game - qualities I strive to bring to my coding practice. When I'm not studying, you'll find me watching matches or playing video games.
+          </p>
+          <p class="text-lg mb-6">
+            My goal is to combine technical skills with creative problem-solving to build innovative digital solutions that make a real impact.
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 text-center">
+            <i class="fas fa-graduation-cap text-4xl mb-4 gradient-text"></i>
+            <h3 class="font-bold mb-2">Education</h3>
+            <p class="text-gray-600">BSc Computing Systems at Ulster University</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 text-center">
+            <i class="fas fa-futbol text-4xl mb-4 gradient-text"></i>
+            <h3 class="font-bold mb-2">Football Fan</h3>
+            <p class="text-gray-600">Die-hard Lionel Messi supporter</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 text-center">
+            <i class="fas fa-gamepad text-4xl mb-4 gradient-text"></i>
+            <h3 class="font-bold mb-2">Gaming</h3>
+            <p class="text-gray-600">Passionate about strategy & sports games</p>
+          </div>
+          <div class="bg-gray-50 p-6 rounded-xl border border-gray-200 text-center">
+            <i class="fas fa-code text-4xl mb-4 gradient-text"></i>
+            <h3 class="font-bold mb-2">Development</h3>
+            <p class="text-gray-600">Building skills in multiple languages</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center">My Skills</h2>
+      
+      <div class="mb-12">
+        <h3 class="text-xl font-semibold mb-6">Programming Languages</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 text-center">
+            <i class="fab fa-js text-4xl mb-2 text-yellow-400"></i>
+            <p>JavaScript</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 text-center">
+            <i class="fab fa-python text-4xl mb-2 text-blue-600"></i>
+            <p>Python</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 text-center">
+            <i class="fab fa-java text-4xl mb-2 text-red-600"></i>
+            <p>Java</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 text-center">
+            <i class="fab fa-html5 text-4xl mb-2 text-orange-500"></i>
+            <p>HTML5</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 text-center">
+            <i class="fab fa-css3-alt text-4xl mb-2 text-blue-500"></i>
+            <p>CSS3</p>
+          </div>
+        </div>
       </div>
       
-    </div>
-
-    <!-- Right Side Text -->
-    <div>
-      <p class="text-indigo-600 font-semibold mb-2">About</p>
-      <h2 class="text-5xl font-bold text-gray-900 mb-6">About Me</h2>
-      <p class="text-lg text-gray-700 mb-6">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce varius faucibus massa sollicitudin amet augue. Nibh metus a semper purus mauris.
-        Lorem eu neque, tristique quis duis. Nibh scelerisque ac adipiscing velit non nulla in amet pellentesque.
-      </p>
-      <p class="text-lg text-gray-700">
-        Sit turpis pretium eget maecenas. Vestibulum dolor mattis consectetur eget commodo vitae. Amet pellentesque sit pulvinar lorem mi a, euismod risus.
-      </p>
-    </div>
-  </div>
-</section>
-
-  <section class="projects">
-    <div class="container">
-      <h2>Featured Projects</h2>
-      <div class="project-list">
-        <div class="project">
-          <img src="XXXXXXX" alt="Project 1" />
-          <h3>Personal Portfolio Website</h3>
-          <h55>A fully responsive personal website to showcase my bio, skills, contact form, and project work. Designed and coded from scratch to reflect my personality and learning journey</h55>
-        </div>
-        <div class="project">
-          <img src="XXXXXXX" alt="Project 2" />
-          <h3>JavaScript Quiz App</h3>
-          <h44>A quiz application that asks multiple-choice questions and gives real-time feedback. Demonstrates knowledge of JavaScript, DOM manipulation, and basic logic flow.</h44>
-        </div>
-        <div class="project">
-          <img src="XXXXXXXX" alt="Project 3" />
-          <h3>Weather App</h3>
-          <h23>A real-time weather app that fetches data using an API and displays temperature, humidity, and weather conditions based on city input.</h23>
+      <div class="mb-12">
+        <h3 class="text-xl font-semibold mb-6">Tools & Technologies</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 text-center">
+            <i class="fab fa-git-alt text-4xl mb-2 text-orange-600"></i>
+            <p>Git</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 text-center">
+            <i class="fab fa-linux text-4xl mb-2 text-black"></i>
+            <p>Linux</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 text-center">
+            <i class="fas fa-database text-4xl mb-2 text-blue-400"></i>
+            <p>SQL</p>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 text-center">
+            <i class="fab fa-windows text-4xl mb-2 text-blue-600"></i>
+            <p>Windows OS</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="contact">
-    <div class="container">
-      <h2>Contact Me</h2>
-      <p>You can reach me at <a href="mailto:romikthapa364@gmail.com">romikthapa364@gmail.com</a></p>
-        <form action="https://formspree.io/f/mrbqpzdo" method="POST">
-  <label>
-    Your Name:
-    <input type="text" name="name" required>
-  </label>
-  <label>
-    Your Email:
-    <input type="email" name="email" required>
-  </label>
-  <label>
-    Message:
-    <textarea name="message" required></textarea>
-  </label>
-  <button type="submit">Send</button>
-</form>
-
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center">Academic Projects</h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Project 1 -->
+        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition border border-gray-200">
+          <div class="h-48 overflow-hidden">
+            <img 
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8222cdbd-17b9-465a-9d31-163b92fc0642.png" 
+              alt="University project dashboard showing code and documentation" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Student Management System</h3>
+            <p class="text-gray-600 mb-4">A Java application for managing student records and course enrollments.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">Java</span>
+              <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Swing</span>
+              <span class="bg-gray-100 text-gray-800 text-xs px-3 py-1 rounded-full">MySQL</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition border border-gray-200">
+          <div class="h-48 overflow-hidden">
+            <img 
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f1198fbc-80ab-435d-846a-c4310acc9af6.png" 
+              alt="Web development project showing responsive design" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">University Web Portal</h3>
+            <p class="text-gray-600 mb-4">A responsive web portal for student resources and information.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full">HTML5</span>
+              <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">CSS3</span>
+              <span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full">JavaScript</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition border border-gray-200">
+          <div class="h-48 overflow-hidden">
+            <img 
+              src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/8885f73f-2ce5-435c-94d9-c383b7bf08e6.png" 
+              alt="Data analysis project showing charts and graphs" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">Data Analysis Project</h3>
+            <p class="text-gray-600 mb-4">Python-based data analysis of academic performance metrics.</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">Python</span>
+              <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">Pandas</span>
+              <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">Matplotlib</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 Romik Thapa. All rights reserved.</p>
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
+      <div class="bg-white rounded-xl shadow-lg p-8">
+        <form id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+            <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          </div>
+          <div class="md:col-span-2">
+            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+          </div>
+          <div class="md:col-span-2">
+            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+            <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"></textarea>
+          </div>
+          <div class="md:col-span-2">
+            <button type="submit" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg transition font-medium w-full md:w-auto">
+              Send Message
+            </button>
+          </div>
+        </form>
+        
+        <div class="mt-12 pt-8 border-t border-gray-200">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <i class="fas fa-envelope text-3xl mb-4 gradient-text"></i>
+              <h3 class="font-bold mb-1">Email</h3>
+              <p class="text-gray-600">romikthapa364@gmail.com</p>
+            </div>
+            <div>
+              <i class="fas fa-phone-alt text-3xl mb-4 gradient-text"></i>
+              <h3 class="font-bold mb-1">Phone</h3>
+              <p class="text-gray-600">+44 07570730394</p>
+            </div>
+            <div>
+              <i class="fab fa-linkedin-in text-3xl mb-4 gradient-text"></i>
+              <h3 class="font-bold mb-1">LinkedIn</h3>
+              <p class="text-gray-600">linkedin.com/in/romik-thapa-991470349</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <a href="#" class="text-2xl font-bold gradient-text">Romik Thapa</a>
+          <p class="text-gray-400 mt-2">Computing Systems Student | Aspiring Developer</p>
+        </div>
+        <div class="flex space-x-6">
+          <a href="https://www.linkedin.com/in/romik-thapa-991470349" target="_blank" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-linkedin-in text-xl"></i>
+          </a>
+          <a href="https://www.facebook.com/romik.thapa.3" target="_blank" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-facebook-f text-xl"></i>
+          </a>
+          <a href="mailto:romikthapa364@gmail.com" class="text-gray-400 hover:text-white transition">
+            <i class="fas fa-envelope text-xl"></i>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <p>&copy; 2023 Romik Thapa. All rights reserved.</p>
+      </div>
     </div>
   </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+    
+    // Close mobile menu when clicking a link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.add('hidden');
+      });
+    });
+    
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+    
+    // Form submission
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+      
+      // Here you would normally send the form data to a server
+      console.log('Form submitted:', data);
+      
+      // Show a success message
+      alert('Thank you for your message! I will get back to you soon.');
+      form.reset();
+    });
+    
+    // Animation when elements come into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+    
+    document.querySelectorAll('section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
