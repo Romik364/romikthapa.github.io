@@ -354,11 +354,36 @@
     });
     
     // Form submission
-document.getElementById('contact-form').addEventListener('submit', function() {
-  setTimeout(() => {
-    alert('✅ Thank you for your message! I will get back to you soon.');
-  }, 500);
-});
+<script>
+  const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Prevent the default redirect
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!');
+        form.reset(); // Clear the form
+      } else {
+        alert('Oops! Something went wrong.');
+      }
+    } catch (error) {
+      alert('Error sending message: ' + error.message);
+    }
+  });
+</script>
+
 
     
     // Animation when elements come into view
